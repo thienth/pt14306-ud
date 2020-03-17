@@ -44,18 +44,25 @@ export class HeroListComponent implements OnInit {
   }
 
   saveHero(){
-    // 1. tìm đc cái id lớn nhất trong mảng heroList
-    let maxId = 0;
-    this.heroList.forEach(function(item){
-      if(item.id >= maxId){
-        maxId = item.id;
-      }
-    });
-    // 2. gán lại giá trị của customeHero.id = giá trị lớn nhất + 1 
-    this.customeHero.id = ++maxId;
-    // 3. push customeHero vào trong heroList
-    this.heroList.push(this.customeHero);
+    if(this.customeHero.id == null){
+      // 1. tìm đc cái id lớn nhất trong mảng heroList
+      let maxId = 0;
+      this.heroList.forEach(function(item){
+        if(item.id >= maxId){
+          maxId = item.id;
+        }
+      });
+      // 2. gán lại giá trị của customeHero.id = giá trị lớn nhất + 1 
+      this.customeHero.id = ++maxId;
+      // 3. push customeHero vào trong heroList
+      this.heroList.push(this.customeHero);
+    }
+    
     // 4. Trả lại giá trị gốc cho customeHero
+    this.cancel();
+  }
+
+  cancel(){
     this.customeHero = {
       id: null,
       name: null,
@@ -68,6 +75,10 @@ export class HeroListComponent implements OnInit {
     this.heroList = this.heroList.filter(function(item){
       return item != hero;
     });
+  }
+
+  editHero(hero){
+    this.customeHero = hero;
   }
 
 
