@@ -11,19 +11,28 @@
                             (keyup)="customeHero.name = $event.target.value"
                             class="form-control">
                     </div>
+                    <div class="row">
+                        <div class="col-6 offset-3">
+                            <img [src]="customeHero.img" class="img-fluid">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="">Ảnh hero</label>
-                        <input type="text" class="form-control">
+                        <input type="text"
+                            (keyup)="customeHero.img = $event.target.value"
+                            class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Giới tính</label>
-                        <select class="form-control">
+                        <select (change)="customeHero.gender = $event.target.value" class="form-control">
                             <option value="1">Nam</option>
                             <option value="2">Nữ</option>
                         </select>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-sm btn-success">Lưu</button>
+                        <button 
+                        (click)="saveHero()"
+                        class="btn btn-sm btn-success">Lưu</button>
                     </div>
                 </div>
             </div>
