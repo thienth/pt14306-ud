@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-hero-list',
@@ -34,6 +35,13 @@ export class HeroListComponent implements OnInit {
       img: 'https://znews-photo.zadn.vn/w0/Uploaded/mdf_rkxrxd/2019_04_29/Black_Widow_2.jpg'
     }
   ];
+
+  customeHero = {
+    id: null,
+    name: null,
+    img: null,
+    gender: 1
+  }
 
   removeHero(hero){
     this.heroList = this.heroList.filter(function(item){
