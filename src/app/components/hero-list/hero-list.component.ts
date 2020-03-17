@@ -35,6 +35,12 @@ export class HeroListComponent implements OnInit {
     }
   ];
 
+  removeHero(hero){
+    this.heroList = this.heroList.filter(function(item){
+      return item != hero;
+    });
+  }
+
 
   constructor() { }
 
