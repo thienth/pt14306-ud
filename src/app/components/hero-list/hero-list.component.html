@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2 border">
+            <!-- {{ }} Hiển thị giá trị của 1 biến/1 thuộc tính của đối tượng -->
+            <!-- [] quy định về giá trị của các thuộc tính của các thẻ khi giá trị thuộc tính 
+                đc gán bằng 1 biến/1 gtri thuộc tính -->
+            <!-- <img [src]="" /> | <input [value]="" />-->
+            <!-- () quy định về sự kiện, khi sự kiện xảy ra thì 1 hàm trong .ts sẽ được thực thi -->
+            <!-- (click) (blur) (keydown) -->
+            <!-- Thực hiện vòng lặp (sử dụng cho kiểu dữ liệu dạng mảng) => *ngFor -->
+            <!-- Thực hiện câu lệnh điều kiện => *ngIf -->
+            <h2>{{title}}</h2>
+            <ol>
+                <li *ngFor="let hero of heroList">
+                    <img [src]="hero.img" width="70"> &nbsp;
+                    {{hero.name}} - 
+                    <span *ngIf="hero.gender==1">Nam</span>
+                    <span *ngIf="hero.gender!=1">Nữ</span>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
