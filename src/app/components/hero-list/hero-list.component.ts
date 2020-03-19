@@ -81,6 +81,10 @@ export class HeroListComponent implements OnInit {
     this.customeHero = hero;
   }
 
+  testEvent(){
+    alert(1);
+  }
+
 
   constructor() { }
 

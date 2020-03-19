@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-8 offset-2 border">
+        <div class="col-10 offset-1 border">
             <div class="row">
                 {{customeHero|json}}
                 <div class="col-6 offset-3">
@@ -51,18 +51,14 @@
             <!-- Thực hiện vòng lặp (sử dụng cho kiểu dữ liệu dạng mảng) => *ngFor -->
             <!-- Thực hiện câu lệnh điều kiện => *ngIf -->
             <h2>{{title}}</h2>
-            <ol>
-                <li *ngFor="let hero of heroList">
-                    <img [src]="hero.img" width="70"> &nbsp;
-                    {{hero.name}} - 
-                    <span *ngIf="hero.gender==1">Nam</span>
-                    <span *ngIf="hero.gender!=1">Nữ</span>
-                    &nbsp;
-                    <button (click)="editHero(hero)" class="btn btn-sm btn-info">Sửa</button>
-                    &nbsp;
-                    <button (click)="removeHero(hero)" class="btn btn-sm btn-danger">Xóa</button>
-                </li>
-            </ol>
+            <!-- Danh sách các heros -->
+            <div class="row">
+                <app-hero-detail *ngFor="let h of heroList"
+                    [heroData]="h"
+                    (onRemoveEvent)="testEvent()"
+                ></app-hero-detail>
+                
+            </div>
         </div>
     </div>
 </div>
